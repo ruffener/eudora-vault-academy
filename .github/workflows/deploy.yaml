@@ -1,0 +1,68 @@
+name: Deploy Eudora Vault Academy Website
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: eva-production-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy-production:
+    name: Deploy production website
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Create deploy exclude list
+        run: |
+          cat > .deployignore <<'EOF'
+          .git/
+          .github/
+          .gitignore
+          README.md
+          docs/
+          backups/
+          exports/
+          node_modules/
+          vendor/
+          .env
+          .env.*
+          *.sql
+          *.zip
+          *.log
+          EOF
+
+      - name: Deploy to production by SFTP
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_PORT: ${{ secrets.SFTP_PORT }}
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          PROD_PATH: ${{ secrets.PROD_PATH }}
+        run: |
+          if [ -z "$SFTP_HOST" ] || [ -z "$SFTP_PORT" ] || [ -z "$SFTP_USERNAME" ] || [ -z "$SFTP_PASSWORD" ] || [ -z "$PROD_PATH" ]; then
+            echo "Missing one or more required GitHub Actions secrets."
+            exit 1
+          fi
+
+          lftp -e "
+            set sftp:auto-confirm yes;
+            set net:timeout 30;
+            set net:max-retries 2;
+            set net:reconnect-interval-base 5;
+            open -p ${SFTP_PORT} -u ${SFTP_USERNAME},${SFTP_PASSWORD} sftp://${SFTP_HOST};
+            mirror --reverse --delete --verbose --exclude-glob-from=.deployignore ./ ${PROD_PATH};
+            bye
+          "
