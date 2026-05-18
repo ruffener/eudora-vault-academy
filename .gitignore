@@ -1,0 +1,24 @@
+# Environment / secrets
+.env
+.env.*
+*.local
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Logs
+*.log
+
+# Backups / exports
+*.zip
+*.sql
+/backups/
+/exports/
+
+# Dependencies, if used later
+/node_modules/
+/vendor/
