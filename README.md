@@ -1,6 +1,6 @@
 # Eudora Vault Academy Website
 
-Starter website project for Eudora Vault Academy.
+Starter website project for Eudora Vault Academy. The current Phase 1 site includes homepage content, a contact/interest page, and an Eudora Vertical Challenge event page.
 
 Domain: eudoravaultacademy.com
 
@@ -62,6 +62,8 @@ Replace `YOUR-USERNAME` with your GitHub username.
 ```text
 eudoravaultacademy/
 ├── index.html
+├── contact.html
+├── eudora-vertical-challenge.html
 ├── README.md
 ├── .gitignore
 ├── assets/
@@ -69,6 +71,7 @@ eudoravaultacademy/
 │   ├── css/
 │   │   └── site.css
 │   ├── img/
+│   │   └── eudora-vertical-challenge-2026.png
 │   └── js/
 │       └── site.js
 └── docs/
@@ -81,11 +84,14 @@ eudoravaultacademy/
 
 ## Editing notes
 
-- Main content is currently in `index.html`.
+- Main homepage content is in `index.html`.
+- The interest/contact form page is in `contact.html`.
+- The event landing page is in `eudora-vertical-challenge.html`.
 - Site styling is in `assets/css/site.css`.
 - Minimal JavaScript is in `assets/js/site.js`.
 - Add official logo files to `assets/brand/` when ready.
-- Add approved photos to `assets/img/` when ready.
+- Add approved facility, coach, and athlete photos to `assets/img/` when ready.
+- The current contact form uses `mailto:` and also links to the live Google Form. Replace with a hosted form handler later if needed.
 
 ## Important operating rule
 
