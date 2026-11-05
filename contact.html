@@ -17,7 +17,8 @@
       <nav class="site-nav" aria-label="Main navigation">
         <a href="index.html#training">Training</a>
         <a href="index.html#schedule">Schedule</a>
-        <a href="eudora-vertical-challenge.html">Meet</a>
+        <a href="index.html#coaches">Coaches</a>
+        <a href="eudora-vertical-challenge.html">Events</a>
         <a href="contact.html" aria-current="page">Contact</a>
       </nav>
     </div>
@@ -34,36 +35,40 @@
 
     <section class="section">
       <div class="container contact-layout">
-        <form class="interest-form" action="mailto:eudoravaultacademy@gmail.com" method="post" enctype="text/plain">
+        <form class="interest-form" action="contact-submit.php" method="post" accept-charset="UTF-8">
           <div class="form-header">
             <h2>EVA Interest Form</h2>
-            <p>This form mirrors the current EVA interest form fields. The live Google Form remains available while the website form process is finalized.</p>
+            <p>Tell us about your athlete and the best way to reach you. EVA will receive your interest form by email. The Google Form is also available as a backup.</p>
+          </div>
+
+          <div hidden aria-hidden="true">
+            <label>Leave this field empty <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label>
           </div>
 
           <label>
             Athlete Name
-            <input type="text" name="Athlete Name" required>
+            <input type="text" name="athlete_name" required>
           </label>
 
           <div class="form-grid">
             <label>
               Athlete Phone Number
-              <input type="tel" name="Athlete Phone Number" required>
+              <input type="tel" name="athlete_phone" required>
             </label>
             <label>
               Athlete Email
-              <input type="email" name="Athlete Email">
+              <input type="email" name="athlete_email">
             </label>
           </div>
 
           <div class="form-grid">
             <label>
               School
-              <input type="text" name="School" required>
+              <input type="text" name="school" required>
             </label>
             <label>
               Graduation Year
-              <select name="Graduation Year" required>
+              <select name="graduation_year" required>
                 <option value="">Select one</option>
                 <option>2026</option>
                 <option>2027</option>
@@ -79,7 +84,7 @@
           <div class="form-grid">
             <label>
               Pole Vault Experience
-              <select name="Pole Vault Experience">
+              <select name="vault_experience">
                 <option value="">Select one</option>
                 <option>&lt; 1 year</option>
                 <option>1–2 years</option>
@@ -88,29 +93,29 @@
             </label>
             <label>
               Current Personal Best
-              <input type="text" name="Current Personal Best" required>
+              <input type="text" name="personal_best" required>
             </label>
           </div>
 
           <label>
             Guardian Name
-            <input type="text" name="Guardian Name" required>
+            <input type="text" name="guardian_name" required>
           </label>
 
           <div class="form-grid">
             <label>
               Guardian Phone Number
-              <input type="tel" name="Guardian Phone Number" required>
+              <input type="tel" name="guardian_phone" required>
             </label>
             <label>
               Guardian Email
-              <input type="email" name="Guardian Email">
+              <input type="email" name="guardian_email">
             </label>
           </div>
 
           <label>
             Who should we contact regarding training?
-            <select name="Preferred Contact" required>
+            <select name="preferred_contact" required>
               <option value="">Select one</option>
               <option>Athlete</option>
               <option>Guardian</option>
@@ -121,11 +126,11 @@
 
           <label>
             Notes or Questions
-            <textarea name="Notes or Questions" rows="5" placeholder="Tell us anything helpful about your athlete, goals, schedule, or questions."></textarea>
+            <textarea name="notes" rows="5" placeholder="Tell us anything helpful about your athlete, goals, schedule, or questions."></textarea>
           </label>
 
           <div class="form-actions">
-            <button class="button button-primary" type="submit">Send Interest Email</button>
+            <button class="button button-primary" type="submit">Send Interest Form</button>
             <a class="button button-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSc_Cwu7smSAwkutnff5Gzulh0JP9F6SC_V14usA3UT2aR2HIA/viewform" target="_blank" rel="noopener">Open Google Form</a>
           </div>
         </form>

@@ -63,6 +63,8 @@ Replace `YOUR-USERNAME` with your GitHub username.
 eudoravaultacademy/
 ├── index.html
 ├── contact.html
+├── contact-submit.php
+├── thank-you.html
 ├── eudora-vertical-challenge.html
 ├── README.md
 ├── .gitignore
@@ -91,7 +93,22 @@ eudoravaultacademy/
 - Minimal JavaScript is in `assets/js/site.js`.
 - Add official logo files to `assets/brand/` when ready.
 - Add approved facility, coach, and athlete photos to `assets/img/` when ready.
-- The current contact form uses `mailto:` and also links to the live Google Form. Replace with a hosted form handler later if needed.
+- The interest form posts to `contact-submit.php`, which uses PHP `mail()` with UTF-8 quoted-printable email formatting.
+- Successful submissions redirect to `thank-you.html`.
+- A honeypot and server-side validation are included. The existing Google Form remains as a fallback.
+- The PHP handler requires a PHP-enabled host with a working local mail transport; local browser preview alone does not prove email delivery.
+- No database or SMTP credentials are used. Check that the host permits sending with `no-reply@eudoravaultacademy.com` as From and that domain SPF/DKIM are configured for the hosting mail server.
+
+## Contact form deployment smoke test
+
+1. Test the form locally via Laragon (PHP must be enabled). Confirm that validation errors are handled and that normal static pages work.
+2. Push to `develop` for review; promote to `main` only after approval.
+3. On production, submit a test athlete called `EVA Form Test` with a personal best such as `15’`, and an available email address.
+4. Verify the visitor lands on `thank-you.html` only when mail handoff succeeds.
+5. Verify that the EVA Gmail inbox receives the email with subject `EVA Form Test: EVA Interest Form` and displays `Current Personal Best: 15’` without `â€™`. Check spam if necessary.
+6. Verify Reply-To if an athlete/guardian email was supplied. Verify that empty honeypot/invalid entries are handled.
+7. If mail is accepted by PHP but never delivered, review the hosting outgoing-mail policy and SPF/DKIM; consider authorized host SMTP or a transactional email service.
+8. Do not send real athlete personal details in test submissions. Remove test emails after testing.
 
 ## Important operating rule
 

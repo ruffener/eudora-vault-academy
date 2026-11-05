@@ -29,11 +29,10 @@ Eudora Vault Academy
 - Drop-in session: $30/session
 - Private lessons: available upon request; pricing not public
 
-## Current planned summer schedule
+## Winter training schedule (through February 28, 2027)
 
-- Sunday: 4:00–5:00 PM and 5:00–6:00 PM
-- Tuesday: 5:00–6:00 PM and 6:00–7:00 PM
-- Thursday: 5:00–6:00 PM and 6:00–7:00 PM
+- Monday: 5:00–6:00 PM and 6:00–7:00 PM
+- Wednesday: 5:00–6:00 PM and 6:00–7:00 PM
 
 Schedule may change, so first-time athletes should contact EVA to confirm availability.
 
@@ -41,7 +40,7 @@ Schedule may change, so first-time athletes should contact EVA to confirm availa
 
 - Colby Manley
 - Anthony Lightfoot
-- Thad Swanns
+- Thadd Swann
 - Callie Ruffener
 
 Coach bios and photos are pending.
@@ -89,6 +88,7 @@ Create a clean, mobile-friendly website that establishes credibility, explains t
 
 ## Future feature backlog
 
+- Interest form PHP email handler (added November 2026; production delivery still needs verification)
 - Official online registration/intake handling
 - Waiver form link or online waiver collection
 - Private lesson request workflow
